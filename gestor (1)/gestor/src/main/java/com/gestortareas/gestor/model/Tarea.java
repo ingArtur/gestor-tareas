@@ -10,8 +10,17 @@ public class Tarea {
     private Long id;
 
     private String titulo;
-
+    private String descripcion;
     private boolean completada = false;
+
+    // Constructores
+    public Tarea() {}
+
+    public Tarea(String titulo, String descripcion, boolean completada) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.completada = completada;
+    }
 
     // Getters y setters
 
@@ -30,6 +39,10 @@ public class Tarea {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public String getDescripcion() {return descripcion; }
+
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
     public boolean isCompletada() {
         return completada;
