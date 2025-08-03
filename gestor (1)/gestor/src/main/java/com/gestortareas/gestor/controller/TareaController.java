@@ -2,6 +2,7 @@ package com.gestortareas.gestor.controller;
 
 import com.gestortareas.gestor.model.Tarea;
 import com.gestortareas.gestor.service.TareaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,9 @@ public class TareaController {
     }
 
     @PostMapping
-    public Tarea crearTarea(@RequestBody Tarea tarea) {
-        return tareaService.guardarTarea(tarea);
+    public ResponseEntity<Tarea> crearTarea(@RequestBody Tarea tarea) {
+        Tarea nueva = tareaService.guardarTarea(tarea);
+        return ResponseEntity.status(201).body(nueva);
     }
 
     @GetMapping("/{id}")
